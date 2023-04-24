@@ -1,30 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
+import Button from '@mui/material/Button';
+import { HelpOutline, Settings } from "@mui/icons-material";
+import styleText from "data-text:./style.module.pcss";
+import * as style from "./style.module.pcss";
+
+export const getStyle = () => {
+  const style = document.createElement("style");
+  style.textContent = styleText;
+  return style;
+};
 
 function IndexPopup() {
-  const [data, setData] = useState("");
-
   return (
-    <div
-      style={{
+    <div className={style.container} style={{
+      display: "flex",
+      flexDirection: "column",
+    }}>
+      <div className={style.title} style={{
         display: "flex",
-        flexDirection: "column",
-        padding: 16
-      }}
-    >
-      <h2>
-        Welcome to your{" "}
-        <a href="https://www.plasmo.com" target="_blank" rel="noreferrer">
-          Plasmo
-        </a>{" "}
-        Extension!
-      </h2>
-      <input onChange={(e) => setData(e.target.value)} value={data} />
-      <a href="https://docs.plasmo.com" target="_blank" rel="noreferrer">
-        View Docs
-      </a>
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexDirection: "row",
+      }}>
+        <div style={{fontSize: 20}}>Elysia-Rss</div>
+        <div>
+          <HelpOutline className={style.icon} style={{marginRight: 10}} />
+          <Settings className={style.icon} />
+        </div>
+      </div>
+      <Button onClick={() => {
+          chrome.tabs.create({
+            url: "./tabs/App.html"
+          });
+        }} variant="contained">KiraKira</Button>
     </div>
   );
 }
 
 export default IndexPopup;
-

@@ -2,7 +2,7 @@
   "name": "elysia-rss",
   "displayName": "Elysia rss",
   "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
+  "description": "Anime Chrome manages RSS plugins.",
   "author": "regaliastar",
   "packageManager": "npm@6.14.17",
   "scripts": {
@@ -11,9 +11,15 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.1",
+    "@plasmohq/storage": "^1.5.0",
     "plasmo": "0.69.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.6.4",
@@ -39,12 +45,15 @@
     "web_accessible_resources": [
       {
         "resources": [
-          "inject.js"
+          "tabs/index.html"
         ],
         "matches": [
           "<all_urls>"
         ]
       }
-    ]
+    ],
+    "content_scripts": [{
+      "matches": ["https://*/*", "http://*/*"]
+    }]
   }
 }
