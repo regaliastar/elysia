@@ -1,3 +1,6 @@
-## RSS 订阅插件
-番剧管理工具  
-施工中...
+## 浏览器插件脚手架
+* react
+* ts
+* scss + less
+* eslint + prettier
+* webpack
