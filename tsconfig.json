@@ -1,11 +1,28 @@
 {
-  "extends": "plasmo/templates/tsconfig.base",
-  "exclude": ["node_modules"],
-  "include": [".plasmo/index.d.ts", "./**/*.ts", "./**/*.tsx"],
   "compilerOptions": {
-    "paths": {
-      "~*": ["./*"]
-    },
-    "baseUrl": "."
-  }
+    "target": "es6", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "jsx": "react", /* Specify what JSX code is generated. */
+    "module": "ES2020",
+    "sourceMap": true, /* Create source map files for emitted JavaScript files. */
+    "outDir": "./dist", /* Specify an output folder for all emitted files. */
+    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */
+    "moduleResolution": "node",
+    "strict": true, /* Enable all strict type-checking options. */
+    "noImplicitAny": true,
+    "allowJs": false,
+    "importHelpers": true,
+  },
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ],
+    "compilerOptions": {
+      "target": "es6",
+      "module": "CommonJS",
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "extends": "./tsconfig.paths.json"
 }
