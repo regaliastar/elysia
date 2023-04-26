@@ -1,7 +1,16 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
 
 const App = () => {
-  return <p>tabs</p>;
+  return <p>tabsssssss</p>;
 };
 
-export default App;
+const container = document.getElementById('root');
+if (container) {
+  const root = ReactDOM.createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}

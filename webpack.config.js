@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: 'production',
@@ -29,9 +30,9 @@ module.exports = {
     extensions: ['.ts', '.js', '.tsx'],
     fallback: {
       'stream': require.resolve('stream-browserify'),
-      'buffer': require.resolve('buffer/'),
+      'buffer': require.resolve('buffer'),
       'http': require.resolve('stream-http'),
-      "url": require.resolve("url/"),
+      "url": require.resolve("url"),
       "https": require.resolve("https-browserify"),
       "timers": require.resolve("timers-browserify"),
     },
@@ -39,6 +40,15 @@ module.exports = {
       '~common': path.resolve(__dirname, './src', './common'),
       '~assets': path.resolve(__dirname, './assets'),
     },
+  },
+
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false, //不将注释提取到单独的文件中
+      }),
+    ],
   },
 
   module: {

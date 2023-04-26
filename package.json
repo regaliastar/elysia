@@ -18,12 +18,10 @@
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --fix"
   },
-  "browser": {
-    "http": false,
-    "https": false
-  },
   "dependencies": {
+    "@arco-design/theme-line": "^0.0.3",
     "@arco-design/web-react": "^2.47.1",
+    "@arco-plugins/webpack-react": "^1.4.9-beta.2",
     "buffer": "^6.0.3",
     "https-browserify": "^1.0.0",
     "husky": "^8.0.3",

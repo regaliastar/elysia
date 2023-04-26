@@ -1,4 +1,12 @@
-import { getPageRSS } from "~common/util";
-
+import { getPageRSS, isRssPage } from "~common/util";
+import { Signal } from "~common/store";
+import { AllRssType } from "~common/interface";
 console.log('Elysia已加载 ╭(●｀∀´●)╯╰(●’◡’●)╮');
-console.log('getPageRSS', getPageRSS());
+
+const feed = getPageRSS();
+const rssType: AllRssType = isRssPage() ? 'pageRSS' : 'RSSinPage';
+chrome.runtime.sendMessage(null, {
+  text: Signal.RSSinPage,
+  feed,
+  rssType,
+});

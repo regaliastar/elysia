@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import RSSParser from 'rss-parser';
-import { Feed } from '~common/interface';
+import { Feed, AllRssTypeEmun } from '~common/interface';
 import { Signal } from '~common/store';
 const rssParser = new RSSParser();
 
@@ -112,10 +112,10 @@ export function getPageRSS() {
               title: result.title,
               image,
             } as Feed;
-            console.log('sendMessage', feed);
             chrome.runtime.sendMessage(null, {
               text: Signal.addPageRSS,
-              feed,
+              feed: [feed],
+              rssType: AllRssTypeEmun.pageRSS,
             });
           }
         });
