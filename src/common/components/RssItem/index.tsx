@@ -28,6 +28,6 @@ export const RssItem = (props: Feed) => {
     </div>
     <Button style={{
       flexShrink: 0
-    }}>保存</Button>
+    }}>导入</Button>
   </div>;
 };

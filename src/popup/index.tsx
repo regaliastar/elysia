@@ -12,7 +12,7 @@ const App = () => {
   const [rssList, setRssList] = useState<Feed[]>([]);
   const [title, setTitle] = useState('');
   const getTitleText = (length: number, rssType: AllRssType) => {
-    if (length === undefined || length === 0 || rssType === undefined) return 'orz当前页面没有检测到RSS';
+    if (length === undefined || length === 0 || rssType === undefined) return ' (´・н・‘) 当前页面没有检测到RSS';
     return rssType === 'RSSinPage' ? '当前页面包含的RSS' : 'RSS页面解析结果';
   };
 
@@ -50,15 +50,8 @@ const App = () => {
           color: '#4E5969',
         }}>{title}</div>
         <div>
-          <IconQuestionCircle className={style.icon} style={{
-            marginRight: 10,
-            width: 20,
-            height: 20,
-          }} />
-          <IconSettings className={style.icon} style={{
-            width: 20,
-            height: 20,
-          }}/>
+          <IconQuestionCircle className={style.icon} />
+          <IconSettings className={style.icon}/>
         </div>
       </div>
       {rssList.length ? rssList.map((rss, i) => <RssItem key={i} {...rss}></RssItem>) : <></>}
